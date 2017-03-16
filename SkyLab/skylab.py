@@ -21,9 +21,12 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 #Create or get an already created database using MongoDB.
-#Considers the database is not created when the application starts running.
-def getDatabase():
+def getDatabase(cleandb = False):
 	client = MongoClient()
+	
+	if cleandb:
+		client.drop_database('skyhub_database')
+	
 	database = client.skyhub_database
 	
 	return database
@@ -61,7 +64,7 @@ def processValues(imgList):
 	large = (640, 480)
 	
 	#Get database to store processed images
-	database = getDatabase()
+	database = getDatabase(True)
 	processedImagesDB = database.processed_collection
 
 	#Process all the images, creating their small, medium and large versions
