@@ -28,6 +28,7 @@ In order to execute the application, you must install some tools, like:
 - **MongoDB** (Should be running in your machine when you try to run the application)
 - **PyMongo**
 - **Flask** (Microframework used to run the application)
+- **requests** (To make requests to a server)
 
 After installing these tools, you can run the aplication by executing the script at `skylab.py` (for example, running on terminal, using `python skylab.py`).
 
